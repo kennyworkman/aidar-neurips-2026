@@ -6,26 +6,33 @@
     <title>AIDaR: Data Infrastructure and Benchmarks for Scientific AI</title>
     <meta
       name="description"
-      content="AIDaR is a NeurIPS 2026 workshop proposal on experimental data, AI-facing scientific data systems, and practical evaluations."
+      content="AIDaR is a NeurIPS 2026 workshop on experimental data, AI-facing scientific data systems, and practical evaluations."
     >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="page">
       <header class="hero" id="top">
-        <p class="kicker">NeurIPS 2026 Workshop Proposal</p>
+        <p class="kicker">NeurIPS 2026 Workshop</p>
         <h1>AIDaR: Data Infrastructure and Benchmarks for Scientific AI</h1>
         <p class="tagline">From experimental data to reliable scientific AI systems.</p>
         <div class="meta">
           <span>One-day in-person workshop</span>
-          <span>December 2026</span>
-          <span>100-200 attendees</span>
-          <span>40-50 submissions</span>
+          <span>Date TBA</span>
+          <span>Location TBA</span>
+          <span>Call for papers TBA</span>
         </div>
+        <nav class="quick-links" aria-label="Page sections">
+          <a href="#cfp">Call for papers</a>
+          <a href="#dates">Dates</a>
+          <a href="#speakers">Speakers</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#organizers">Organizers</a>
+        </nav>
       </header>
 
       <section class="abstract-block" id="abstract">
-        <h2>Abstract</h2>
+        <h2>Overview</h2>
         <p>
           Scientific AI is moving from curated prediction tasks toward systems
           that work directly with experimental data. Foundation models,
@@ -48,13 +55,13 @@
           workflows, and deployed scientific AI systems?
         </p>
         <p>
-          The workshop will bring together researchers, industry scientists, and
-          engineers building scientific data systems, foundation models, agents,
+          AIDaR brings together researchers, industry scientists, and engineers
+          building scientific data systems, foundation models, agents,
           biomedical evaluations, and industrial assay platforms.
         </p>
       </section>
 
-      <section class="people-block" aria-label="Speakers and panelists">
+      <section class="people-block" id="speakers" aria-label="Speakers and panelists">
         <div class="people-group">
           <h2>Invited speakers</h2>
           <div class="people-strip invited">
@@ -141,50 +148,44 @@
         </div>
       </section>
 
-      <section class="section two-col" id="why-now">
+      <section class="section two-col" id="cfp">
         <div>
-          <h2>Why now</h2>
+          <h2>Call for papers</h2>
           <p>
-            Scientific AI is moving from models trained on curated datasets to
-            systems that interact with experimental data, scientific literature,
-            databases, and lab workflows. These systems need data that preserves
-            sample, assay, protocol, measurement, and workflow context.
+            AIDaR invites submissions on data infrastructure, evaluations, and
+            deployed systems for scientific AI. We welcome technical papers,
+            benchmark and evaluation work, data-system reports, workflow and
+            tool demos, and failure analyses that show how scientific data
+            organization affects downstream model or agent behavior.
           </p>
           <p>
-            Modern scientific data systems are not organized for this style of
-            use. Raw instrument data, sample tables, images, count matrices,
-            workflow outputs, notebooks, and plots are often split across storage
-            systems, LIMS/ELN tools, workflow runners, and lab-specific
-            conventions. Large industrial datasets add further pressure:
-            perturbation datasets, multiplexed screens, tissue-model systems,
-            and wet-lab feedback loops must be connected to model-training
-            datasets and analysis tools.
+            Relevant topics include AI-operable experimental data,
+            graph-structured scientific knowledge, multimodal biomedical
+            measurements, workflow systems, large industrial datasets,
+            biological reasoning tasks, practical data analysis, retrieval and
+            agent evaluations, and deployed scientific AI systems.
           </p>
         </div>
-        <div id="audience">
-          <h2>Target audience</h2>
+        <div id="dates">
+          <h2>Important dates</h2>
+          <table class="dates-table">
+            <tbody>
+              <tr><td>Submissions open</td><td>TBA</td></tr>
+              <tr><td>Submission deadline</td><td>TBA</td></tr>
+              <tr><td>Acceptance notification</td><td>TBA</td></tr>
+              <tr><td>Camera-ready deadline</td><td>TBA</td></tr>
+              <tr><td>Workshop date</td><td>TBA</td></tr>
+            </tbody>
+          </table>
           <p>
-            AIDaR is for researchers, scientists, and engineers building AI
-            systems that must work with real scientific data. The audience
-            includes AI-for-science researchers, foundation-model and agent
-            builders, scientific RAG researchers, computational biologists,
-            biomedical ML researchers, benchmark and evaluation researchers,
-            data-management and provenance researchers, and teams responsible for
-            assay data, workflow systems, LIMS/ELN integrations, model-training
-            datasets, and deployed analysis tools.
-          </p>
-          <p>
-            We will welcome methods papers and practitioner reports, including
-            scientific data-system case studies, workflow and tool demos,
-            evaluation suites, failure analyses, assay metadata schemas,
-            retrieval benchmarks, agent task suites, and lessons from deployed
-            scientific AI systems.
+            Submission format, OpenReview link, and workshop date will be posted
+            after NeurIPS workshop decisions.
           </p>
         </div>
       </section>
 
       <section class="section" id="schedule">
-        <h2>Schedule and program</h2>
+        <h2>Tentative schedule</h2>
         <table>
           <tbody>
             <tr><td>08:45</td><td>Arrival, question wall, opening remarks, COI/LLM policies, and workshop tracks.</td></tr>
@@ -233,7 +234,7 @@
             <figcaption><strong>Vladimir Ermakov</strong><span>Edison Scientific</span></figcaption>
           </figure>
           <figure>
-            <div class="avatar-fallback" aria-hidden="true">AS</div>
+            <img src="assets/organizers/arindam-sett.jpg" alt="Arindam Sett">
             <figcaption><strong>Arindam Sett</strong><span>Roche / Genentech</span></figcaption>
           </figure>
         </div>

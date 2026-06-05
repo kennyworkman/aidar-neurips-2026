@@ -33,6 +33,7 @@ body {
 
 .kicker,
 .meta,
+.quick-links,
 td:first-child,
 footer {
   color: var(--muted);
@@ -98,6 +99,24 @@ p {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--wash);
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: -0.25rem 0 0.95rem;
+  font-size: 0.78rem;
+}
+
+.quick-links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
 }
 
 .abstract-block {
@@ -242,6 +261,17 @@ td:first-child {
   width: 4.4rem;
   padding-right: 0.75rem;
   white-space: nowrap;
+}
+
+.dates-table {
+  margin-bottom: 0.55rem;
+}
+
+.dates-table td:first-child {
+  width: 11rem;
+  color: var(--ink);
+  font-family: inherit;
+  white-space: normal;
 }
 
 .program-grid {
