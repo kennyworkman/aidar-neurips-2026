@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIDaR: Data Infrastructure and Benchmarks for Scientific AI</title>
+    <meta
+      name="description"
+      content="AIDaR is a NeurIPS 2026 workshop proposal on experimental data, AI-facing scientific data systems, and practical evaluations."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero" id="top">
+        <p class="kicker">NeurIPS 2026 Workshop Proposal</p>
+        <h1>AIDaR: Data Infrastructure and Benchmarks for Scientific AI</h1>
+        <p class="tagline">From experimental data to reliable scientific AI systems.</p>
+        <div class="meta">
+          <span>One-day in-person workshop</span>
+          <span>December 2026</span>
+          <span>100-200 attendees</span>
+          <span>40-50 submissions</span>
+        </div>
+      </header>
+
+      <section class="abstract-block" id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Scientific AI is moving from curated prediction tasks toward systems
+          that work directly with experimental data. Foundation models,
+          retrieval systems, and agents are being asked to use experimental data,
+          query scientific knowledge, run analyses, and support follow-up
+          decisions. Scientific data must remain connected to samples, assays,
+          protocols, measurements, workflow outputs, and the context needed to
+          interpret results outside the lab or notebook where the data was
+          produced.
+        </p>
+        <p>
+          AIDaR focuses on two problems in this transition. First, how should
+          scientific data be organized so models and agents can use it: from raw
+          measurements and analysis-ready files to relational or graph-structured
+          knowledge, multimodal biomedical measurements, workflow systems, and
+          large industrial datasets used for model training and wet-lab feedback?
+          Second, how should evaluations determine where frontier models are
+          reliable: across biological reasoning, practical data analysis,
+          retrieval over structured scientific knowledge, assay-specific
+          workflows, and deployed scientific AI systems?
+        </p>
+        <p>
+          The workshop will bring together researchers, industry scientists, and
+          engineers building scientific data systems, foundation models, agents,
+          biomedical evaluations, and industrial assay platforms.
+        </p>
+      </section>
+
+      <section class="speaker-strip" aria-label="Confirmed invited speakers">
+        <figure>
+          <img src="assets/speakers/max-welling.jpg" alt="Max Welling">
+          <figcaption><strong>Max Welling</strong><span>University of Amsterdam</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/speakers/jure-leskovec.jpg" alt="Jure Leskovec">
+          <figcaption><strong>Jure Leskovec</strong><span>Stanford University</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/speakers/marianna-rapsomaniki.webp" alt="Marianna Rapsomaniki">
+          <figcaption><strong>Marianna Rapsomaniki</strong><span>University of Lausanne</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/speakers/chloe-agathe-azencott.png" alt="Chloe-Agathe Azencott">
+          <figcaption><strong>Chloe-Agathe Azencott</strong><span>Mines Paris-PSL</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="section two-col" id="tracks">
+        <div>
+          <h2>Workshop tracks</h2>
+          <h3>Track 1: Data infrastructure for scientific AI</h3>
+          <p>
+            Scientific data must move from raw measurements into forms that
+            models, retrieval systems, and agents can use. This includes linking
+            files to samples and assay conditions, preserving the steps that
+            produced an analysis-ready dataset, representing scientific
+            relationships as tables, graphs, or knowledge networks, and exposing
+            data through tools that scientists and agents can both use.
+          </p>
+          <p>
+            Topics include scientific foundation models, relational and
+            graph-structured data, multimodal biomedical measurements, workflow
+            systems, and large industrial datasets used for model training and
+            wet-lab feedback.
+          </p>
+        </div>
+        <div>
+          <h2 class="spacer">Track 2</h2>
+          <h3>Track 2: Evaluations for scientific AI</h3>
+          <p>
+            Scientific AI systems should be tested on tasks that resemble real
+            scientific work: choosing inputs, running analyses, checking controls,
+            interpreting noisy results, and recovering biological or physical
+            conclusions from data.
+          </p>
+          <p>
+            Topics include biological reasoning, practical data analysis,
+            retrieval over structured scientific knowledge, multimodal biomedical
+            data, failure analysis, and studies of where performance changes
+            across assays, platforms, workflows, or data organization.
+          </p>
+        </div>
+      </section>
+
+      <section class="section two-col" id="why-now">
+        <div>
+          <h2>Why now</h2>
+          <p>
+            Scientific AI is moving from models trained on curated datasets to
+            systems that interact with experimental data, scientific literature,
+            databases, and lab workflows. These systems need data that preserves
+            sample, assay, protocol, measurement, and workflow context.
+          </p>
+          <p>
+            Modern scientific data systems are not organized for this style of
+            use. Raw instrument data, sample tables, images, count matrices,
+            workflow outputs, notebooks, and plots are often split across storage
+            systems, LIMS/ELN tools, workflow runners, and lab-specific
+            conventions. Large industrial datasets add further pressure:
+            perturbation datasets, multiplexed screens, tissue-model systems,
+            and wet-lab feedback loops must be connected to model-training
+            datasets and analysis tools.
+          </p>
+        </div>
+        <div id="audience">
+          <h2>Target audience</h2>
+          <p>
+            AIDaR is for researchers, scientists, and engineers building AI
+            systems that must work with real scientific data. The audience
+            includes AI-for-science researchers, foundation-model and agent
+            builders, scientific RAG researchers, computational biologists,
+            biomedical ML researchers, benchmark and evaluation researchers,
+            data-management and provenance researchers, and teams responsible for
+            assay data, workflow systems, LIMS/ELN integrations, model-training
+            datasets, and deployed analysis tools.
+          </p>
+          <p>
+            We will welcome methods papers and practitioner reports, including
+            scientific data-system case studies, workflow and tool demos,
+            evaluation suites, failure analyses, assay metadata schemas,
+            retrieval benchmarks, agent task suites, and lessons from deployed
+            scientific AI systems.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="schedule">
+        <h2>Schedule and program</h2>
+        <table>
+          <tbody>
+            <tr><td>08:45</td><td>Arrival, question wall, opening remarks, COI/LLM policies, and workshop tracks.</td></tr>
+            <tr><td>09:10</td><td>Invited talks: Max Welling and Jure Leskovec. AI-operable data for foundation models, discovery platforms, relational data, and structured scientific knowledge.</td></tr>
+            <tr><td>10:30</td><td>Contributed spotlights: scientific data systems and practical evaluations.</td></tr>
+            <tr><td>11:20</td><td>Panel 1: Benchmarking AI on practical biology. Evaluations that approximate biological reasoning and practical data-analysis tasks.</td></tr>
+            <tr><td>12:00</td><td>Poster/demo session 1 and lunch.</td></tr>
+            <tr><td>13:15</td><td>Invited talks: Marianna Rapsomaniki and Chloe-Agathe Azencott. Biomedical data, assay design, sample context, treatment conditions, multimodal measurements, biological signal, and reproducibility.</td></tr>
+            <tr><td>14:00</td><td>Contributed spotlights: analysis histories and deployment lessons.</td></tr>
+            <tr><td>14:50</td><td>Poster/demo session 2 and coffee.</td></tr>
+            <tr><td>15:40</td><td>Breakout groups: AI-facing data infrastructure for large industrial datasets.</td></tr>
+            <tr><td>16:25</td><td>Panel 2: Engineering AI-operable assay data systems. Sample metadata, raw instrument data, analysis-ready files, workflow inputs and outputs, version history, and scientist-facing interfaces.</td></tr>
+            <tr><td>17:05</td><td>Breakout report-out, community roadmap, closing remarks, and post-workshop report plan.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="program-grid" id="program">
+          <p><strong>Format.</strong> Short invited talks, central contributed work, poster/demo sessions, and breakout groups that produce short written outputs for the post-workshop report.</p>
+          <p><strong>Speakers.</strong> Max Welling and Jure Leskovec open with AI-operable scientific data systems; Marianna Rapsomaniki and Chloe-Agathe Azencott ground the evaluation track in biomedical data.</p>
+          <p><strong>Panels.</strong> Panel 1 focuses on practical biology evaluations. Panel 2 focuses on assay data systems: sample metadata, raw instrument data, analysis-ready files, workflow inputs and outputs, version history, and scientist-facing interfaces.</p>
+          <p><strong>Breakouts.</strong> Breakouts focus on large perturbation datasets, multiplexed in vivo screens, tissue-foundry systems, model training, and wet-lab feedback, with expected participation from ManifoldBio, Polyphron, Tahoe Therapeutics, and LigandAI.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>AIDaR @ NeurIPS 2026</footer>
+  </body>
+</html>

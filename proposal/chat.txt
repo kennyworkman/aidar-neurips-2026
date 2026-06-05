@@ -1,0 +1,204 @@
+Want to create more general theme around use of data by AI agents and molecular foundation models:
+
+- Data infrastructure for AI agents. Storing, tagging and exposing experimental data. Making accessible to workflows with provenance for filing and compliance
+- Benchmarks and Evals for AI agents. Data readiness involves constructing evaluation sets that measure practical scientific work against moving frontier intelligence
+
+Evaluate categories and consider anything else
+
+I’ll treat your two bullets as candidate workshop/theme categories and stress-test whether they are mutually distinct, broad enough for agents + molecular foundation models, and concrete enough for submissions.
+
+Thought for 24s
+
+Yes — the two categories are strong, but I would make the general theme slightly broader:
+
+AI Data Readiness is about turning scientific data ecosystems into substrates that models can train on, agents can act on, and communities can evaluate.
+
+The current proposal already supports this framing: it defines AIDaR around foundation models, lab-in-the-loop agents, digital twins, RAG, provenance, uncertainty, benchmark design, and operational readiness, rather than just “better datasets.”
+
+I’d organize the theme into four categories:
+
+1. AI-facing data infrastructure
+
+Your first category is essential. I would phrase it less as storage and more as AI-operable scientific data systems.
+
+This includes storing, tagging, linking, versioning, permissioning, and exposing experimental data so agents and foundation models can use it with context. For biology, this means assay metadata, protocols, batch structure, sample/donor relationships, instruments, controls, perturbations, negative results, units, data lineage, and access policies.
+
+Better wording:
+
+Data infrastructure for AI systems: How scientific data should be stored, annotated, versioned, governed, and exposed so agents and foundation models can retrieve, reason over, and act on experimental evidence with provenance.
+
+2. Semantic and experimental context
+
+I would add this as its own category because it is the bridge between raw infrastructure and useful intelligence. Agents do not just need files; they need to know what the data means.
+
+For molecular foundation models, this is especially important: sequence, structure, perturbation, assay, phenotype, dose, time, cell type, tissue context, and experimental design all have to be represented in ways the model can learn from or reason over. For agents, this includes knowing what comparison is valid, what unit is independent, which metadata field is biological versus technical, and what provenance chain supports a conclusion.
+
+Possible wording:
+
+Semantic readiness and experimental context: Representing the biological, physical, and experimental meaning of data so AI systems can distinguish valid evidence from artifacts, metadata leakage, batch effects, and unsupported inference.
+
+3. Benchmarks and evals for AI behavior
+
+Your second category is also essential. I would make the key point that evals are not just leaderboards; they are measurement instruments for whether data is usable by moving frontier systems.
+
+This category can include benchmark construction, task design, ground-truth curation, agent trajectories, data ablations, provenance stress tests, agent failure analysis, and evals that connect data interventions to downstream scientific behavior.
+
+Better wording:
+
+Benchmarks and evaluations for AI data readiness: Constructing evaluation sets that measure whether agents and foundation models can use scientific data to perform practical work, and whether improvements in data structure, metadata, provenance, or context actually improve downstream behavior.
+
+4. Governance, provenance, and deployment feedback
+
+Some of this fits under infrastructure, but I think it deserves explicit visibility because it makes the theme feel consequential beyond model performance. This covers auditability, compliance, reproducibility, permissions, licensing, human review, observability, and feedback from deployed systems.
+
+For agents, the important thing is not just “can the model answer?” but “can we reconstruct what data it used, what transformations it performed, why it reached a conclusion, and whether the result is reproducible?”
+
+Possible wording:
+
+Provenance, governance, and feedback loops: Capturing how data, tools, models, and human decisions interact in deployed scientific AI systems, with enough lineage and observability to support reproducibility, compliance, and continuous improvement.
+
+A compact final taxonomy could be:
+
+AI-operable data infrastructure — storage, metadata, APIs, access, versioning, workflow exposure.
+Semantic and experimental context — assay meaning, biological units, protocols, controls, uncertainty, negative results.
+Benchmarks and evals for AI behavior — measuring whether agents and molecular foundation models can use data to do real scientific work.
+Provenance, governance, and deployment feedback — auditability, compliance, reproducibility, observability, and learning from real use.
+
+I would not make the theme only “data infrastructure + evals.” That is close, but it skips the crucial middle layer: scientific meaning. The strongest version is: infrastructure makes data available, semantics makes it meaningful, evals measure whether AI can use it, and provenance/governance make the system trustworthy.
+
+Sources
+Uploaded a file
+Here is the latest draft. We want only two categories. I still think the abstract and a lot of the categories are quite "mushy"
+
+I think your instinct is right: the proposal is closest to compelling when it sounds like a workshop for people building the missing plumbing and measurement layer for scientific agents, not when it sounds like a broad “AI-ready data” umbrella.
+
+Thought for 18s
+
+I think your concern is valid. The proposal distinguishes itself in the related-work section, but not enough in the title + abstract. Right now, the abstract says “data readiness,” “scientific validity,” “provenance,” “uncertainty,” and “downstream AI behavior,” but those phrases can read like a broad trustworthy/data-management workshop. The sharper NeurIPS value-add is buried later: AIDaR is not about generic data quality; it is about engineering the data layer and evaluation layer for scientific agents and foundation models. The current draft already gestures at this with two tracks around “AI-facing scientific data infrastructure” and “benchmarks/evaluations,” plus a related-work distinction that the unit of analysis is “measurable readiness of scientific data ecosystems for AI behavior,” but I would move that distinction into the title and first abstract sentence.
+
+My recommendation: make the workshop sound less like AI-ready data and more like the missing systems-and-evals layer for scientific AI.
+
+Best title direction:
+
+AIDaR: Data Infrastructure and Benchmarks for Scientific AI
+
+Alternative, more agent-forward:
+
+AIDaR: Building and Evaluating Data Systems for Scientific Agents
+
+I would use the first if you want breadth across molecular foundation models, RAG, agents, and lab workflows. I would use the second if you want sharper NeurIPS excitement around agents. The current title, “AI Data Readiness for Scientific Discovery,” is cleaner but too abstract; it does not immediately tell reviewers what kinds of papers belong.
+
+Here is a tighter abstract that foregrounds the practical engineering/benchmark value-add:
+
+Scientific AI is moving from offline prediction toward foundation models, retrieval systems, data-analysis agents, and lab-in-the-loop workflows that must operate directly over experimental data. This shift creates a practical bottleneck: most scientific data ecosystems were built for human interpretation, publication, or archival storage, not for AI systems that train on, retrieve from, reason over, and act on experimental evidence. AIDaR focuses on the missing infrastructure and evaluation layer for this transition. The workshop is organized around two concrete questions: how should scientific data be structured, annotated, versioned, governed, and exposed for use by AI systems; and how should we benchmark whether those systems can use the data to perform reliable scientific work? These questions cut across molecular foundation models, scientific RAG, agentic data analysis, multimodal biomedical data, assay-derived datasets, provenance systems, and industry-scale scientific platforms. Unlike broad AI-for-science workshops centered on new models or applications, and unlike dataset venues centered on publishing static datasets, AIDaR focuses on the engineering and measurement problems that connect data conditions to AI behavior: metadata and ontology design, assay and protocol representation, lineage and access control, workflow exposure, data ablations, retrieval evaluations, agent task suites, reproducibility tests, failure analysis, and deployment feedback loops. The workshop will bring together researchers and practitioners building scientific data systems, benchmarks, foundation models, agents, and real-world AI infrastructure. The program will include invited talks, contributed papers, demos, panels, and breakout groups aimed at producing practical artifacts: benchmark-design principles, infrastructure patterns, provenance-aware evaluation templates, and a roadmap for AI-facing scientific data systems.
+
+The key conceptual distinction I would emphasize everywhere is:
+
+AIDaR is not asking “is this dataset good?” It is asking “can AI systems use this scientific data ecosystem to do reliable work?”
+
+That is NeurIPS-relevant because it makes the workshop about measurable interaction between data systems and model/agent behavior. It also makes the submission surface clearer: people can submit infrastructure papers, benchmark papers, eval failures, tool demos, data-system case studies, agent task suites, assay metadata schemas, provenance systems, retrieval evaluations, and postmortems from deployed scientific AI.
+
+Sources
+Look at Max Welling's recent research and see how it aligns with tracks
+
+I’ll ground this in his recent public research rather than just reputation, then map it back to the two-track framing: infrastructure versus evaluation of AI use of scientific data.
+
+Thought for 34s
+
+Yes — Max Welling aligns well, but the alignment is strongest if you frame him as evidence that AIDaR is about practical scientific AI systems, not abstract “data readiness.” His recent work sits almost exactly at the intersection of foundation models, generative scientific design, surrogate simulation, search agents, heterogeneous scientific data, and downstream evaluation.
+
+Your current two tracks are: AI-facing scientific data infrastructure and benchmarks/evaluations/provenance/feedback loops for downstream AI behavior. Max maps onto both, but in different ways.
+
+Track 1: AI-facing scientific data infrastructure
+
+This is the strongest fit. His recent materials work through CuspAI is basically a concrete example of the “AI-facing scientific data infrastructure” problem. CuspAI is described as a platform for AI-based materials research, using generative models, force fields, property predictors, and AI-powered search agents to design and filter materials. It draws on public databases, company-specific data, and in-house simulations that generate synthetic data.
+
+That is exactly your Track 1 story: scientific data is not just “available”; it has to be integrated across public databases, proprietary experimental data, simulation outputs, physics-based models, and agentic search workflows. The infrastructure question becomes very concrete:
+
+What does a materials data ecosystem need to look like so generative models, surrogate evaluators, and search agents can actually use it?
+
+Aurora, his Earth-system foundation model paper, gives another strong Track 1 example. Aurora is trained on more than one million hours of diverse geophysical data, handles heterogeneous variables and resolutions, and supports fine-tuning across weather, air quality, ocean waves, and cyclone tracking. The Nature paper explicitly describes heterogeneous inputs being encoded into a universal 3D latent representation, then decoded back into physical predictions. That is a clean, high-status example of “AI-facing scientific data infrastructure” in practice: harmonizing heterogeneous scientific observations and simulations into a representation a foundation model can use.
+
+Track 2: Evaluation of AI use of scientific data
+
+This is also a fit, but you should be more deliberate. Max is not primarily a “benchmarking person” in the way a Datasets & Benchmarks reviewer might expect. The link is that his recent work requires evaluation stacks that test whether scientific AI systems can use data to produce valid downstream behavior.
+
+Aurora is a great example because it evaluates a foundation model across multiple downstream operational tasks after pretraining: air pollution, ocean waves, tropical cyclone tracks, and high-resolution weather. The paper reports comparisons against operational systems and numerical models, including claims that Aurora outperforms operational forecasts across several targets at much lower computational cost. This supports your Track 2 framing: the question is not just “was the data curated?” but “does pretraining on this scientific data ecosystem improve downstream scientific prediction?”
+
+His molecular generation work is also useful here. DiffLinker is an E(3)-equivariant 3D conditional diffusion model for molecular linker design that is evaluated on standard datasets, more challenging multi-fragment settings, pocket-conditioned design, and real-world drug-design case studies. The paper explicitly introduces benchmarks and evaluates validity, diversity, synthetic accessibility, drug-likeness, steric clashes, docking scores, and case-study recovery of known molecules. That is very close to your Track 2 notion of benchmarks as diagnostic instruments rather than leaderboards.
+
+His 2025 ICML paper on controlled equivariant variational flow matching is another example: it focuses on controlled molecular generation, symmetry-aware generation, and evaluation of controlled and uncontrolled molecular generation against state-of-the-art models. This connects to evals for whether data/model structure preserves scientific constraints like rotations, translations, and permutations.
+
+Best way to position him
+
+I would not describe Max as “data readiness speaker.” That sounds too bureaucratic and undersells him. I would describe him as:
+
+a speaker on the infrastructure and evaluation requirements of scientific foundation models and AI-driven materials discovery.
+
+Or more concretely:
+
+Max Welling will discuss how scientific foundation models and AI-driven materials platforms depend on heterogeneous scientific data, surrogate simulation, generative models, search agents, and downstream evaluation loops.
+
+That makes his relevance obvious to NeurIPS reviewers. He represents the frontier system builder who can say: “Here is what data infrastructure and evaluation look like when you are actually trying to build scientific AI systems.”
+
+Suggested program language
+
+Replace generic wording like:
+
+data-readiness requirements for scientific foundation models and generative discovery
+
+with something sharper:
+
+scientific foundation models and AI-driven materials discovery; integrating public databases, proprietary experimental data, synthetic simulation data, surrogate evaluators, and search agents into usable discovery systems.
+
+And for the AIDaR lens:
+
+Max Welling: what data infrastructure and evaluation loops are required to make scientific foundation models useful for materials design?
+
+The conclusion: Max is a very strong fit, especially if the workshop is framed around practical systems. He helps distinguish AIDaR from generic data-readiness work because his recent research makes the problem concrete: frontier scientific AI systems need engineered data substrates and evaluation loops, not just better models.
+
+Sources
+Now what about jure leskovec
+
+I’ll do the same mapping: identify Jure’s recent research themes, then translate them into why he belongs in Track 1, Track 2, or both.
+
+Thought for 32s
+
+Jure is probably an even cleaner fit than Max for the two-track AIDaR framing, but for a different reason. Max helps sell “frontier scientific foundation models need data infrastructure.” Jure helps sell “scientific AI needs structured, relational, benchmarked data systems.”
+
+The current draft already places him under “graph-structured scientific data, knowledge networks, and downstream AI behavior,” which is directionally right. I would sharpen that to relational scientific data infrastructure + retrieval/evaluation over semi-structured knowledge bases.
+
+Why he fits Track 1: AI-facing scientific data infrastructure
+
+Jure’s core research area is applied machine learning for large interconnected systems: graphs, networks, relational structures, and applications ranging from protein interactions to computational biology and drug discovery. That is almost exactly the infrastructure side of AIDaR: scientific data rarely comes as one clean matrix; it comes as entities, relations, metadata, time, provenance, assays, samples, literature, measurements, perturbations, and outcomes.
+
+His recent work on Relational Deep Learning is especially aligned. The paper frames multi-table relational databases as “relational entity graphs,” emphasizing primary/foreign-key relationships, temporal structure, heterogeneous data, multi-table integration, and foundation models for relational data. This is a concrete NeurIPS version of “AI-facing scientific data infrastructure”: how do you expose structured scientific data so models can learn from it without flattening away meaning?
+
+KumoRFM-2 makes the connection even sharper. It is a foundation model for relational data that processes connected tables without manual flattening, preserves temporal consistency, pretrains on real and synthetic relational data, and scales to billion-scale relational datasets. That maps directly to AIDaR’s practical engineering thesis: AI data readiness is not a checklist; it is the design of data representations that let models operate over real, messy, connected data.
+
+Why he fits Track 2: Evaluation of AI use of scientific data
+
+Jure is also a strong fit for the benchmark/eval track because of STaRK, a benchmark for LLM retrieval over semi-structured textual and relational knowledge bases. STaRK covers product search, academic paper search, and biomedicine, and it tests whether retrieval systems can answer realistic queries requiring both textual and relational reasoning. That is basically the AIDaR eval thesis in miniature: not “is the dataset nice,” but “can an AI system use this data structure to retrieve the right evidence?”
+
+STaRK also has the right benchmark-design flavor: realistic natural-sounding queries, synthesized and human-generated queries, and verified ground-truth answer nodes. That supports your argument that AIDaR is not just about infrastructure; it is about building diagnostic evals that reveal whether AI systems can use the infrastructure.
+
+Biology/scientific AI angle
+
+He also has a direct scientific foundation-model story. His Stanford talk “From Data to Discovery: How Foundation Models Transform Biology” focused on foundation models learning structure in complex biological data, integrating large datasets, annotating cells across tissues/species, using scientific literature for hypothesis refinement, and automating validation and experimental design. That gives you a clean way to connect him to molecular/scientific AI without pretending his whole identity is “data readiness.”
+
+Suggested positioning
+
+I would not describe Jure as a generic “knowledge graphs” speaker. That risks sounding old-school. I would position him as:
+
+Jure Leskovec: relational foundation models and benchmarks for AI over structured scientific knowledge.
+
+Or for the agenda:
+
+Jure Leskovec: graph-structured and relational data infrastructure for scientific AI; evaluating retrieval and reasoning over semi-structured scientific knowledge bases.
+
+This is stronger than the current wording because it ties him to both tracks:
+
+Track 1: relational/graph data infrastructure for scientific AI.
+Track 2: benchmarks for whether LLMs and agents can retrieve and reason over semi-structured knowledge.
+
+The deeper value is that Jure helps distinguish AIDaR from a generic AI-for-science workshop. He represents the data-systems + ML bridge: the scientific world is full of relational, heterogeneous, temporal, graph-structured data, and current foundation-model/agent systems need both new infrastructure and new evals to use it reliably.
