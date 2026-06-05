@@ -34,6 +34,7 @@ body {
 .kicker,
 .meta,
 .quick-links,
+.subtitle,
 td:first-child,
 footer {
   color: var(--muted);
@@ -87,6 +88,12 @@ ul {
   margin-bottom: 0.35rem;
   color: var(--muted);
   font-size: 1.1rem;
+}
+
+.subtitle {
+  margin-bottom: 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 .meta {
