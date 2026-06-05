@@ -79,6 +79,10 @@ p {
   margin-bottom: 0.55rem;
 }
 
+ul {
+  margin-top: 0;
+}
+
 .tagline {
   margin-bottom: 0.35rem;
   color: var(--muted);
@@ -268,10 +272,19 @@ td:first-child {
 }
 
 .dates-table td:first-child {
-  width: 11rem;
+  width: 12.5rem;
   color: var(--ink);
   font-family: inherit;
   white-space: normal;
+}
+
+.key-list {
+  margin: 0.1rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.key-list li {
+  margin-bottom: 0.3rem;
 }
 
 .program-grid {
