@@ -167,14 +167,14 @@ ul {
 }
 
 .people-strip.panelists {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  max-width: 760px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .people-strip.organizers {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  max-width: 900px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  max-width: 980px;
   margin: 0 auto;
 }
 

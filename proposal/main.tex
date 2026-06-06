@@ -26,12 +26,14 @@
 \newcommand{\confirmed}{\textit{confirmed}}
 \newcommand{\tentative}{\textit{tentative}}
 
-\IfFileExists{neurips_2026.sty}{%
-  \usepackage[final]{neurips_2026}%
-}{%
-  \usepackage[letterpaper,top=0.75in,bottom=0.85in,left=0.8in,right=0.8in]{geometry}%
-  \usepackage{times}%
-}
+% \IfFileExists{neurips_2026.sty}{%
+%   \usepackage[final]{neurips_2026}%
+% }{%
+%   \usepackage[letterpaper,top=0.75in,bottom=0.85in,left=0.8in,right=0.8in]{geometry}%
+%   \usepackage{times}%
+% }
+
+\usepackage[nonanonymous, nonatbib,main]{neurips_2026}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -45,38 +47,48 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{enumitem}
-\usepackage{parskip}
+\usepackage{indentfirst}
+% \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{fancyhdr}
 
+\usepackage{caption}
+
+\usepackage{multicol}
+\usepackage{fancyhdr}
+
+\captionsetup[table]{skip=4pt}
+
 % Tighten vertical rhythm so the main proposal fits in 3 pages.
-\setlength{\parskip}{1.8pt}
-\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1.8pt}
+
+%\setlength{\parindent}{0pt}
+\setlength{\parindent}{2em}
 \setlist[itemize]{leftmargin=1.1em,itemsep=0pt,topsep=0pt,parsep=0pt}
 
 % Compact research-paper-style headings. Sections and subsections both display.
 \titleformat*{\section}{\normalsize\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
-\titleformat{\subsubsection}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[\,]
-\titlespacing*{\section}{0pt}{5pt}{1pt}
-\titlespacing*{\subsection}{0pt}{3pt}{0.5pt}
-\titlespacing*{\subsubsection}{0pt}{2pt}{0.4em}
+% \titleformat*{\subsection}{\normalsize\bfseries}
+% \titleformat{\subsubsection}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[\,]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+\titlespacing*{\subsection}{0pt}{4pt}{2pt}
+% \titlespacing*{\subsubsection}{0pt}{2pt}{0.4em}
 \titlespacing*{\paragraph}{0pt}{2pt}{0.4em}
 
 % Numbering depth: number sections and subsections (and show them in the body).
 \setcounter{secnumdepth}{3}
 
 % Tighter title block.
-\makeatletter
-\renewcommand{\maketitle}{%
-  \begin{center}%
-    {\Large\bfseries \@title\par}%
-    \vspace{2pt}%
-    {\normalsize \@author\par}%
-  \end{center}%
-  % \vspace{-4pt}%
-}
+% \makeatletter
+% \renewcommand{\maketitle}{%
+%   \begin{center}%
+%     {\Large\bfseries \@title\par}%
+%     \vspace{2pt}%
+%     {\normalsize \@author\par}%
+%   \end{center}%
+%   % \vspace{-4pt}%
+% }
 \makeatother
 
 \hypersetup{
@@ -90,7 +102,7 @@
 % Visible proposal split and running headers.
 \newcommand{\currentproposalpart}{Main Workshop Proposal}
 \newcommand{\setproposalpart}[1]{\gdef\currentproposalpart{#1}}
-\setlength{\headheight}{12pt}
+\setlength{\headheight}{4pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\footnotesize\currentproposalpart}
@@ -103,47 +115,53 @@
 }
 
 
-\title{AIDaR: Data Infrastructure and Benchmarks for Scientific AI}
-
-\author{NeurIPS 2026 Workshop Proposal}
+\title{AIDaR: AI Data Readiness for Scientific AI}
+%\title{AIDaR: Data Infrastructure and Benchmarks for Scientific AI}
 
 \date{}
 
 \begin{document}
 
 \setproposalpart{PART I -- Main Workshop Proposal}
-\proposalbanner{PART I -- Main Workshop Proposal}{Pages 1--3, three-page limit}
 \maketitle
 
 % \begin{center}
 % \textit{\textbf{How do we know scientific data is ready for reliable, trustworthy AI?}}
 % \end{center}
 
-\vspace{2pt}
-\textbf{Tagline (\textless 140 chars):} \textit{From experimental data to reliable scientific AI systems.}\\
+\vspace{-64pt}
+\begin{center}
+%\textit{From experimental data to reliable scientific AI systems.}\\
+\textit{\textbf{Tagline: }Data Infrastructure and Benchmarks for Reliable Scientific AI Systems.} \url{https://go.roche.com/aidar}
+\end{center}
+
+
 
 % \vspace{-2pt}
-\begin{abstract}
-Scientific AI is moving from curated prediction tasks toward systems that work directly with experimental data. Foundation models, retrieval systems, and agents are being asked to use experimental data, query scientific knowledge, run analyses, and support follow-up decisions. Scientific data must remain connected to samples, assays, protocols, measurements, workflow outputs, and the context needed to interpret results outside the lab or notebook where the data was produced.
 
-AIDaR focuses on two problems in this transition. First, how should scientific data be organized so models and agents can use it: from raw measurements and analysis-ready files to relational or graph-structured knowledge, multimodal biomedical measurements, workflow systems, and large industrial datasets used for model training and wet-lab feedback? Second, how should evaluations determine where frontier models are reliable: across biological reasoning, practical data analysis, retrieval over structured scientific knowledge, assay-specific workflows, and deployed scientific AI systems?
+% \begin{abstract}
+% Scientific AI is moving from curated prediction tasks toward systems that work directly with experimental data, scientific knowledge, and analysis workflows. Foundation models, retrieval systems, and agents are increasingly expected to query evidence, run analyses, interpret outputs, and support follow-up decisions. For these systems to be reliable, data must remain connected to the samples, assays, protocols, measurements, workflow outputs, and contextual assumptions needed to interpret results beyond the lab or notebook where they were produced.
 
-The workshop will bring together researchers, industry scientists, and engineers building scientific data systems, foundation models, agents, biomedical evaluations, and industrial assay platforms. The program includes invited talks, contributed papers, demos, panels, and breakout groups focused on AI-facing data infrastructure, practical evaluations, and concrete lessons from scientific AI deployments.
-\end{abstract}
+% \textbf{The workshop centers on one question:}
+% \textit{which measurable properties of scientific data ecosystems predict downstream AI behavior?} We use AI Data Readiness (AIDaR) to describe this measurable relationship between data ecosystems and model or agent performance.
+
+% AIDaR focuses on two linked problems. First, how should scientific data be organized so AI systems can use it: from raw measurements and analysis-ready files to relational or graph-structured knowledge, multimodal biomedical measurements, workflow records, and large datasets used for model training and experimental feedback? Second, how should evaluations determine where frontier models are reliable: across biological reasoning, practical data analysis, retrieval over structured scientific knowledge, assay-specific workflows, and deployed scientific AI settings?
+
+% The workshop will bring together researchers, industry scientists, and engineers building scientific data systems, foundation models, agents, biomedical evaluations, and industrial assay platforms. The program includes invited talks, contributed papers, demos, panels, and breakout groups focused on data infrastructure, practical evaluations, and lessons from scientific AI deployments.
+% \end{abstract}
+
 
 % =====================================================================
 % 1. A Provisional AI Data Readiness Framework
 % =====================================================================
 
-\section{Workshop Tracks}
+\section{Workshop Themes}
 
-Scientific AI systems need data they can operate on and tests that show whether they used it correctly. AIDaR is organized around two tracks.
+AIDaR is organized around two linked themes: data that scientific AI systems can operate on, and evaluations that test whether systems use that data correctly. Unlike workshops that focus primarily on new models, datasets, or benchmark leaderboards, AIDaR makes the scientific data ecosystem itself the object of evaluation: what context it retains, how it is exposed to AI systems, and how those choices affect downstream behavior.
 
-\paragraph{Track 1: AI-facing scientific data infrastructure.}
-Scientific data must move from raw measurements into forms that models, retrieval systems, and agents can use. This includes linking files to samples and assay conditions, preserving the steps that produced an analysis-ready dataset, representing scientific relationships as tables, graphs, or knowledge networks, and exposing data through tools that scientists and agents can both use. Topics include data infrastructure for scientific foundation models, relational and graph-structured scientific data, multimodal biomedical measurements, assay-specific context, workflow systems, and large industrial datasets used for model training and wet-lab feedback.
+\textbf{Theme 1: AI-facing scientific data infrastructure.} Scientific data must move from raw measurements to formats usable by models, retrieval systems, and agents while preserving links to samples, assay conditions, instruments, protocols, workflow provenance, uncertainty estimates, and analysis-ready outputs. Topics include infrastructure for scientific foundation models, relational and graph-structured data, multimodal biomedical measurements, materials and chemistry datasets, climate or simulation outputs, workflows, and large industrial datasets used for model training and experimental feedback.
 
-\paragraph{Track 2: Benchmarks and evaluations for scientific AI.}
-Scientific AI systems should be tested on tasks that resemble real scientific work. This includes choosing inputs, running analyses, checking controls, interpreting noisy results, and recovering biological or physical conclusions from data. Topics include biological reasoning and data-analysis tasks, retrieval and reasoning over structured scientific knowledge, evaluation of multimodal biomedical data, practical biology benchmarks, failure analysis, and studies of where model or agent performance changes across assays, platforms, workflows, or data organization choices.
+\textbf{Theme 2: Benchmarks and evaluations for scientific AI.} Scientific AI systems should be tested on tasks that resemble real scientific work: choosing inputs, running analyses, checking controls, retrieving structured knowledge, interpreting uncertainty, and deciding whether results are reliable enough for follow-up. Topics include biological reasoning, data-analysis tasks, multimodal biomedical evaluation, practical biology benchmarks, scientific retrieval benchmarks, workflow-level failure analysis, and studies of how performance changes across assays, platforms, simulations, instruments, and data organization choices.
 
 Recent work on FAIR scientific data, dataset documentation, ML-ready metadata, AI-ready data, and scientific data-readiness pipelines motivates this workshop. AIDaR connects those efforts to scientific foundation models, retrieval systems, agents, and practical scientific AI evaluation~\cite{wilkinson2016fair,gebru2021datasheets,pushkarna2022datacards,akhtar2024croissant,brewer2025scientific,brewer2026pipeline,majithia2026actionable,hiniduma2024survey}.
 
@@ -153,30 +171,18 @@ Recent work on FAIR scientific data, dataset documentation, ML-ready metadata, A
 \section{Why Now}
 \label{sec:why-now}
 
-Scientific AI is moving from models trained on curated datasets to systems that interact with experimental data, scientific literature, databases, and lab workflows. These systems need data that preserves sample, assay, protocol, measurement, and workflow context.
+Scientific AI is moving from models trained on curated datasets to systems that interact with experimental data, scientific literature, databases, and lab workflows. These systems need data that preserves sample, assay, protocol, measurement, instrument, and workflow context. Modern scientific data systems are not organized for this style of use. Raw instrument data, sample tables, images, count matrices, simulation outputs, workflow records, notebooks, and plots are often split across storage systems, LIMS/ELN tools, workflow runners, and lab-specific conventions. Large industrial datasets add further pressure: perturbation and multiplexed screens, tissue-model systems, and wet-lab feedback loops must be connected to model-training datasets and analysis tools. Evaluations now shape where frontier models can be used in scientific work. A model that performs well on general reasoning may still fail on a specific assay, platform, instrument, analysis workflow, or data modality. Practical evaluations help identify where agents can assist scientists, where human review is required, and where results are not reliable enough to support follow-up experiments or operational decisions. AIDaR is timely because these problems sit between model development and scientific use. The workshop brings together researchers, industry scientists, and engineers building scientific data systems, foundation models, agents, biomedical evaluations, industrial assay platforms, and deployed analysis environments.
 
-Modern scientific data systems are not organized for this style of use. Raw instrument data, sample tables, images, count matrices, workflow outputs, notebooks, and plots are often split across storage systems, LIMS/ELN tools, workflow runners, and lab-specific conventions. Large industrial datasets add further pressure: perturbation datasets, multiplexed screens, tissue-model systems, and wet-lab feedback loops must be connected to model-training datasets and analysis tools.
+\paragraph{Target audience}
+AIDaR is for researchers, scientists, and engineers building AI systems that must work with real scientific data. The audience includes AI-for-science researchers, foundation-model and agent builders, scientific RAG researchers, computational biologists, biomedical ML researchers, benchmark and evaluation researchers, data-management and provenance researchers, and teams responsible for assay data, workflow systems, LIMS/ELN integrations, model-training datasets, and deployed analysis tools. We expect a medium-sized workshop: \textbf{100--200 attendees} and approximately \textbf{40--50 submissions}. We will welcome both methods papers and practitioner reports, including case studies, workflow and tool demos, evaluation suites, failure analyses, assay metadata schemas, retrieval benchmarks, agent task suites, and lessons from deployed systems.
 
-Evaluations now shape where frontier models can be used in scientific work. A model that performs well on general reasoning may still fail on a specific assay, platform, analysis workflow, or data modality. Practical evaluations help identify where agents can assist scientists, where human review is required, and where results are not reliable enough to support follow-up experiments or operational decisions.
-
-AIDaR is timely because these problems sit between model development and scientific use. The workshop brings together researchers, industry scientists, and engineers building scientific data systems, foundation models, agents, biomedical evaluations, industrial assay platforms, and deployed analysis environments.
-
-\subsection{Target audience}
-AIDaR is for researchers, scientists, and engineers building AI systems that must work with real scientific data. The audience includes AI-for-science researchers, foundation-model and agent builders, scientific RAG researchers, computational biologists, biomedical ML researchers, benchmark and evaluation researchers, data-management and provenance researchers, and teams responsible for assay data, workflow systems, LIMS/ELN integrations, model-training datasets, and deployed analysis tools.
-
-We expect a medium-sized workshop: \textbf{100--200 attendees} and approximately \textbf{40--50 submissions}. We will welcome both methods papers and practitioner reports, including scientific data-system case studies, workflow and tool demos, evaluation suites, failure analyses, assay metadata schemas, retrieval benchmarks, agent task suites, and lessons from deployed scientific AI systems.
-
-\subsection{Difference from related workshops} 
+\paragraph{Difference from related workshops} 
 \label{sec:relationship}
-AIDaR sits between AI-for-science workshops, dataset venues, and reliable-ML workshops. The NeurIPS AI for Science series addresses broad methods and bottlenecks for AI-enabled discovery; ML4PS focuses on machine learning for physical sciences; FM4LS focuses on multimodal foundation models and LLMs for life-science data; Data-Centric ML and the NeurIPS Datasets \& Benchmarks track focus on datasets, benchmarks, and data-centric ML methods; Reliable ML from Unreliable Data emphasizes missing, corrupted, shifted, adversarial, or strategic data; and ADSD 2025 at ICDM focuses on creating, curating, and benchmarking AI-ready scientific datasets \cite{ai4science2025,ml4ps2025,fm4ls2025,dmlr2025,reliableml2025,adsd2025}. 
 
-AIDaR focuses on what happens after scientific data is produced: how it is organized for models and agents, how it appears inside real analysis workflows, and how to tell whether an AI system used it correctly. Compared with broad AI-for-science workshops, AIDaR is more focused on data infrastructure. Compared with dataset venues, it is more focused on use rather than publication. Compared with reliable-ML workshops, it is more focused on scientific workflows, assays, and deployed analysis environments.
-
-The recent AI-ready-data literature and ADSD/ICPP activity show growing interest in the topic; AIDaR would be the first NeurIPS workshop centered on AI-facing scientific data systems and practical evaluations for scientific AI \cite{brewer2025scientific,brewer2026pipeline,majithia2026actionable}.
-
-\subsection{Workshop History and Concurrent Submissions}
+AIDaR sits between broad AI-for-science workshops, dataset venues, and reliable-ML workshops. AI for Science, ML4PS, and FM4LS emphasize scientific ML methods and domain applications; Data-Centric ML and NeurIPS Datasets \& Benchmarks emphasize datasets, benchmarks, and data-centric methods; Reliable ML from Unreliable Data emphasizes corrupted, shifted, adversarial, or strategic data; and ADSD 2025 at ICDM focuses on creating and curating AI-ready scientific datasets~\cite{ai4science2025,ml4ps2025,fm4ls2025,dmlr2025,reliableml2025,adsd2025}. AIDaR is complementary but distinct: its focus is the scientific data ecosystem that determines how AI systems retrieve, analyze, and act on evidence. Compared with broad AI-for-science workshops, AIDaR is more focused on data infrastructure and evaluation conditions than on new modeling methods alone; compared with dataset venues, it is more focused on use rather than publication; and compared with reliable-ML workshops, it is more focused on scientific provenance, workflow structure, assay and instrument context, and deployed analysis environments. To our knowledge, no recent NeurIPS workshop has made AI-facing scientific data readiness itself the central object of evaluation~\cite{brewer2025scientific, brewer2026pipeline, majithia2026actionable}.
+\paragraph{Workshop History and Concurrent Submissions}
 \label{sec:history}
-This workshop has not previously been held at NeurIPS or another venue. No listed organizer is concurrently proposing another NeurIPS 2026 workshop.
+This workshop has not previously been held at any venue. No listed organizer is concurrently proposing another NeurIPS 2026 workshop.
 
 % =====================================================================
 % 3. Program, speakers, logistics, and compliance
@@ -184,216 +190,225 @@ This workshop has not previously been held at NeurIPS or another venue. No liste
 \section{Program Format, Speakers, and Diversity}
 \label{sec:program}
 
-% \subsection{Program Format}
-\subsection{Interactive one-day format}
+% \paragraph{Program Format}
+\paragraph{Interactive one-day format}
 \label{sec:format}
-AIDaR is designed as a one-day in-person workshop within the 7--9 hour NeurIPS format. The program deliberately avoids a talks-only structure: invited talks are short, contributed work is central, posters/demos receive substantial time, and the afternoon breakout groups produce short written outputs for the post-workshop report. Any remote presentation will be used only for unforeseen emergencies and will remain within the NeurIPS one-hour cap.
+AIDaR is a one-day in-person workshop within the 7--9 hour NeurIPS format. The program avoids a talks-only structure: invited talks are short, contributed work and posters/demos are central.  Breakout groups produce written inputs for the post-workshop report. Remote presentation will be used only for emergencies (within the NeurIPS one-hour cap).
 
-% \vspace{-2pt}
-\begin{table}[H]
+\vspace{-6mm}
+\begin{table}[htb!]
 \centering
 \scriptsize
-\caption{Draft one-day agenda. Confirmed speakers are listed in Section~\ref{sec:speakers}; remaining panel slots may be filled by additional confirmed panelists or accepted contributed work. All times are local and may shift by venue.}
-\setlength{\tabcolsep}{3pt}
+
+\caption{Draft workshop agenda.}
+\setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.12}
-\begin{tabular}{@{}p{0.14\linewidth}p{0.43\linewidth}p{0.36\linewidth}@{}}
+\begin{tabular}{@{}p{0.12\linewidth}p{0.4\linewidth}p{0.4\linewidth}@{}}
 \toprule
-\textbf{Time} & \textbf{Session} & \textbf{Topic / AIDaR lens} \tabularnewline
+\textbf{Time} & \textbf{Session} & \textbf{Focus / AIDaR lens} \\
 \midrule
 
 08:45--09:10 &
-Arrival, question wall, opening remarks, COI/LLM policies, and workshop tracks &
-What experimental data must retain, and where evaluations show reliable AI use \tabularnewline
+\textbf{Opening.} Arrival, question wall, opening remarks, and workshop themes &
+\textbf{Framing:} what scientific data must retain for reliable AI use \\
 
-09:10--10:00 &
-Invited talks: Max Welling (University of Amsterdam), and Jure Leskovec (Stanford) &
-Scientific AI systems need AI-operable data: foundation models, materials discovery platforms, relational scientific data, and retrieval/reasoning over structured knowledge \tabularnewline
+09:10--10:10 &
+\textbf{Invited talks I.} Max Welling \textit{(University of Amsterdam)}; 
 
-10:00--10:30 &
-Coffee + poster/demo previews &
-Early visibility into submitted benchmarks, tools, datasets, and case studies \tabularnewline
+Jure Leskovec \textit{(Stanford)} &
+\textbf{AI-operable data:} foundation models; discovery platforms; relational scientific data; structured retrieval and reasoning \\
 
-10:30--11:20 &
-Contributed spotlights: Scientific data systems and practical evaluations &
-Short talks on data schemas, experimental metadata, workflow interfaces, retrieval tasks, agent benchmarks, and failure cases from scientific AI systems \tabularnewline
+10:10--10:30 &
+\textbf{Coffee break}  &  \\
 
-11:20--12:00 &
-Panel 1: Benchmarking AI on practical biology. Harihara Muralidharan (LatchBio), Kexin Huang (Phylo/Biomni), Pablo Meher Rojas (IBM/Dream Challenge) and Jon Laurent (Edison Scientific) &
-How to construct biological and biomedical evaluations that approximate realistic scientific work, especially biological reasoning and practical data-analysis tasks.\tabularnewline
+
+10:30--11:15 &
+\textbf{Contributed spotlights I.} 
+
+Scientific data systems and practical evaluations &
+\textbf{Short talks:} schemas; metadata; workflow interfaces; retrieval tasks; agent benchmarks; failure cases \\
+
+11:15--12:00 &
+\textbf{Panel 1.} Benchmarking AI on practical biology &
+\textbf{Evaluation design:} biological reasoning; biomedical workflows; realistic data-analysis tasks \\
 
 12:00--13:15 &
-Poster/demo session 1 + lunch &
-Community discussion around accepted papers, demos, tools, datasets, and emerging benchmark proposals \tabularnewline
+\textbf{Poster/demo session 1 + lunch} &
+\textbf{Community discussion:} accepted papers; demos; tools; datasets; benchmark proposals \\
 
 13:15--14:00 &
-Invited talks: Marianna Rapsomaniki (University of Lausanne), and Chloe-Agathe Azencott (Mines Paris–PSL) &
-Biomedical data must preserve experimental meaning: assay design, sample and tissue context, treatment conditions, multimodal measurements, biological signal, and reproducibility \tabularnewline
+\textbf{Invited talks II.}  Marianna Rapsomaniki \textit{(University of Lausanne)}; 
+
+Chloe-Agathe Azencott \textit{(Mines Paris--PSL)} &
+\textbf{Experimental connection:} assay design; sample context; perturbations; multimodal measurements; reproducibility \\
 
 14:00--14:50 &
-Contributed spotlights: analysis histories and deployment lessons &
-Short talks on workflow records, human review, failed analyses, and what scientific AI systems need to reproduce results \tabularnewline
+\textbf{Contributed spotlights II.} 
+
+Analysis histories and deployment lessons &
+\textbf{Short talks:} workflow records; human review; failed analyses; reproducible AI-assisted science \\
 
 14:50--15:40 &
-Poster/demo session 2 + coffee &
-Discussion of accepted tools, datasets, workflow systems, benchmark tasks, and lessons from deployed scientific AI systems \tabularnewline
+\textbf{Poster/demo session 2 + coffee} &
+\textbf{Extended discussion:} deployed systems; benchmark tasks; datasets; lessons from practice \\
 
 15:40--16:25 &
-Breakout groups: AI-facing data infrastructure for large industrial datasets: ManifoldBio, Polyphron, Tahoe Therapeutics, and LigandAI {\color{red} \textbf{TO CONFIRM}} &
-Small-group work on large perturbation datasets, multiplexed in vivo screens, tissue-foundry systems, training large models, and integrating wet-lab feedback \tabularnewline
+\textbf{Breakout groups.} AI-facing data infrastructure &
+\textbf{Small-group work:} perturbation datasets; multiplexed screens; tissue-scale systems; training data; wet-lab feedback \\
 
 16:25--17:05 &
-Panel 2: Engineering AI-operable assay data systems. Hoifung Poon (Microsoft Research) and additional industry panelists from TakaraBio, Vizgen, AtlasXOmics and Portal {\color{red} \textbf{TO DO}} &
-Sample metadata, raw instrument data, analysis-ready files, workflow inputs and outputs, version history, and scientist-facing interfaces for deployed scientific AI systems \tabularnewline
+\textbf{Panel 2.} Engineering AI-operable assay data systems &
+\textbf{Infrastructure:} metadata; raw instrument data; analysis-ready files; provenance; versioning; scientist-facing interfaces \\
 
 17:05--17:45 &
-Breakout report-out, community roadmap, closing remarks, and post-workshop report plan &
-Next steps for AI-facing data systems, practical evaluations, and shared examples from scientific deployments \tabularnewline
+\textbf{Report-out and closing.} Breakout summaries, community roadmap, and post-workshop report plan &
+\textbf{Outputs:} roadmap; shared problems; evaluation priorities; post-workshop synthesis \\
 
 \bottomrule
 \end{tabular}
 \end{table}
+\vspace{-2pt}
 
-
-
-\subsection{Speakers and Panelists}
+\paragraph{Invited talks \& confirmed speakers}
 \label{sec:speakers}
 
-Confirmed invited speakers and panelists include Max Welling (University of Amsterdam), Marianna Rapsomaniki (University of Lausanne), Jure Leskovec (Stanford), Chloe-Agathe Azencott (Mines Paris–PSL), Additional panelists are being finalized; any unfilled panel slots will be replaced by accepted contributed work or moderated discussion among confirmed participants.
+Max Welling (University of Amsterdam) and Jure Leskovec (Stanford) open with AI-operable scientific data systems: data for foundation models and discovery platforms, and relational/graph infrastructure for retrieval and reasoning. Marianna Rapsomaniki (University of Lausanne) and Chloe-Agathe Azencott (Mines Paris–PSL) then ground the evaluation theme in biomedical data: assay design, sample and tissue context, treatment conditions, multimodal measurements, biological signal, and reproducibility. Confirmed invited speakers have indicated in-person availability, with final venue-specific participation reconfirmed after location assignment.
 
-The invited-speaker program develops the workshop's two tracks. Max Welling and Jure Leskovec open with AI-operable scientific data systems: heterogeneous data for foundation models and discovery platforms, and relational/graph infrastructure for retrieval and reasoning. Marianna Rapsomaniki and Chloe-Agathe Azencott then ground the evaluation track in biomedical data: assay design, sample and tissue context, treatment conditions, multimodal measurements, biological signal, and reproducibility.
-
-\subsection{Panels}
+\paragraph{Panels \& confirmed panelists}
 \label{sec:panels}
 
-The two panels focus on the workshop's two tracks. Panel 1, ``Benchmarking AI on practical biology,'' will focus on how to construct evaluations that approximate realistic scientific work, especially biological reasoning and data-analysis tasks that are useful in practice, rather than only ranking model accuracy on static benchmarks. Panelists include Harihara Muralidharan (LatchBio), Kexin Huang (Phylo/Biomni), Pablo Meher Rojas (IBM/Dream Challenge), and Jon Laurent (Edison Scientific).
+The panels are designed to open a discussion around the themes of the workshop. Panel 1, ``Benchmarking AI on practical biology,'' will focus on how to construct evaluations that approximate realistic scientific work, especially biological reasoning and data-analysis tasks, rather than only ranking model accuracy on static benchmarks. Confirmed panelists include Harihara Muralidharan (LatchBio), Kexin Huang (Phylo/Biomni), Pablo Meher Rojas (IBM/Dream Challenge), and Jon Laurent (Edison Scientific). Panel 2, ``Engineering AI-operable assay data systems,'' will focus on the infrastructure required to make experimental data usable by scientific AI systems: metadata, raw instrument data, analysis-ready files, workflow data, version history, and APIs. Confirmed panelists include Hoifung Poon (Microsoft Research), Jason Fries (Stanford) and industry panelists from TakaraBio, Vizgen, AtlasXOmics, and Portal (under discussion). 
 
-Panel 2, ``Engineering AI-operable assay data systems,'' will focus on the infrastructure required to make experimental data usable by deployed scientific AI systems: sample metadata, raw instrument data, analysis-ready files, workflow inputs and outputs, version history, and scientist-facing interfaces. Panelists include Hoifung Poon (Microsoft Research), with additional industry panelists from TakaraBio, Vizgen, AtlasXOmics, and Portal under discussion. Confirmed panelists are expected to attend in person.
-
-\subsection{Breakout groups}
+\paragraph{Breakout groups}
 \label{sec:breakouts}
-Breakout groups will focus on AI-facing data infrastructure for large industrial datasets, with expected participation from ManifoldBio, Polyphron, Tahoe Therapeutics, and LigandAI. Participants will discuss how to organize data from large perturbation datasets, multiplexed in vivo screens, and tissue-foundry systems so models and agents can use it. Topics include molecule and protein designs, perturbations, doses, donor and tissue context, sequencing or imaging readouts, assay outcomes, model-training datasets, and links from model predictions back to wet-lab follow-up. Groups will identify where current data organization breaks down as datasets move from experimental platforms into model training, retrieval, and agent-guided analysis, then report concrete recommendations for the post-workshop report.
+Breakout groups will examine AI-facing data infrastructure for large industrial datasets. We are in discussion with participants from ManifoldBio, Polyphron, Tahoe Therapeutics, and LigandAI, and will finalize leads after acceptance. Groups will discuss how perturbation datasets, multiplexed screens, assay readouts, model-training data, and wet-lab feedback should be organized for model and agent use, then report practical recommendations. Breakouts will produce public problem statements and evaluation-design recommendations, not company-specific plans.
 
 
-\subsection{Diversity, Inclusion, and Community Building}
+\paragraph{Diversity, Inclusion, and Community Building}
 \label{sec:diversity}
 
-AIDaR is designed to bring together communities that rarely interact in the same venue: AI-for-science researchers, scientific data-infrastructure builders, benchmark and evaluation researchers, provenance and data-management experts, and practitioners deploying AI systems in high-stakes scientific settings. The organizing team and program committee span academia, industry research, biotechnology, scientific infrastructure, and data systems, with diversity across geography, seniority, discipline, institution type, and research perspective.
+AIDaR brings together communities that often work on adjacent problems but rarely meet in one venue: AI-for-science researchers, scientific data-infrastructure builders, benchmark, evaluation, and data-management experts, and practitioners deploying AI in scientific settings. The organizing team and invited speakers span academia, industry research, biotechnology, and data systems, with diversity in geography, seniority, discipline, and research perspective. The workshop is designed to be participatory rather than talks-only. Posters, demos, contributed spotlights, panels, and breakouts will give early-career researchers, practitioners, tool builders, and domain scientists visible ways to contribute. The CFP will welcome early-stage work, tools, datasets, benchmark failures, negative results, deployment lessons, and postmortems of AI failures linked to data conditions. We will use broad CFP and reviewer outreach to reach beyond the organizers' immediate networks and help seed a durable cross-domain community.
 
-The workshop format is intentionally participatory rather than talks-only. Posters, demos, contributed spotlights, panels, and breakout groups are designed to give junior researchers, practitioners, tool builders, and domain scientists multiple opportunities to contribute. The CFP will explicitly welcome early-stage work, benchmarks, benchmark failures, lessons learned from unsuccessful AI data preparation efforts, tools, datasets, evaluation protocols, case studies, negative results, failed deployments, and postmortems of AI failures linked to data conditions.
-
-We will also support community building beyond the workshop itself through lightweight mentoring for first-time authors, cross-domain collaboration, and breakout groups focused on readiness definitions, benchmark-design principles, and provenance-aware evaluation.
 
 \section{Logistics, review process, and compliance}
-\subsection{Submissions, review, COI, and LLM policy}
-All submissions will be managed through OpenReview. We will accept non-archival short papers, extended abstracts, benchmarks/tools, demos, and position papers; the CFP will state the access policy and discourage work already accepted at the main NeurIPS conference or another archival ML venue. Invited speakers will be asked not to repeat main-conference or near-identical workshop talks.
 
-Each submission will receive three reviews where possible. The PC will be sized so that no reviewer is assigned more than three papers; with 40--50 expected submissions, this requires 45--50 reviewers, with extra reviewers or area chairs if submissions exceed 70. Organizers will not give invited talks, submit papers, or shape decisions for conflicted submissions. Reviewers will be instructed not to use LLMs in reviewing, consistent with NeurIPS 2026 guidance.
+\paragraph{Submissions, review, COI, and LLM policy}
 
-\subsection{Timeline}
+All contributed work will be managed through OpenReview. We will accept non-archival short papers, extended abstracts, benchmarks, tools, demos, case studies, and position papers. The CFP will state the non-archival status, access policy, and that work already accepted to an archival ML venue is discouraged. Invited speakers will be asked to present content that is novel or substantially tailored to AIDaR. Each submission will receive three reviews, with reviewer load capped at three papers where possible; if submissions exceed expectations, we will recruit additional reviewers or area chairs. Organizers will not give invited talks, submit papers, or participate in decisions for conflicted submissions. Reviewers will be instructed not to use LLMs or other agents, consistent with NeurIPS 2026 workshop policy.
+
+
+
+\vspace{-1mm}
+
+\paragraph{Timeline}
 \label{sec:timeline}
 
-\textbf{July 2026:} Website and CFP launch. \\
-\textbf{August 2026:} Submission deadline. \\
-\textbf{September 2026:} Review, meta-review, and notifications. \\
-\textbf{October 2026:} Final materials and public schedule. \\
-\textbf{December 2026:} Workshop.
+\textbf{Jul 2026:} Website, CFP, and OpenReview launch. 
+\textbf{Aug 29, 2026 AoE:} Submission deadline. 
+\textbf{Sep 2026:} Review and meta-review, with notifications by \textbf{Sep 29, 2026 AoE}. 
+\textbf{Dec 11--12, 2026:} Sydney workshop dates; \textbf{Dec 12--13, 2026:} Paris/Atlanta workshop dates.
 
-\subsection{Location preference and technical needs:} Preferred order: \textbf{Paris, Atlanta, Sydney}; any venue is acceptable if needed. Technical needs are standard: projector/screen, podium microphone, Q\&A microphone, panel microphones/table, poster boards, and standard recording/livestream support. No special hardware is required.
+\vspace{-1mm}
 
+\paragraph{Location preference and technical needs} Preferred order: {Paris, Atlanta, Sydney}; any venue acceptable if needed. Hardware needs are standard -- projector/screen, podium, Q\&A and panel microphones/table, poster boards, and  recording/livestream support. 
+
+\vspace{-1mm}
 \section{Expected Outcomes}
-\label{sec:outcomes}
-Concrete deliverables of the workshop will include: (i)~a public post-workshop report on open problems in AI-facing scientific data systems and practical evaluations; (ii)~examples of data-system patterns for samples, assays, workflow runs, model-training datasets, and wet-lab feedback; (iii)~recommendations for evaluating scientific AI systems in specific task contexts; (iv)~a collection of failure cases from scientific AI deployments and benchmarks; and (v)~a seed network of researchers, industry scientists, and engineers to develop future shared tasks and infrastructure examples.
+AIDaR will seed a cross-domain community around AI-facing scientific data readiness: the measurable data conditions that shape whether scientific AI systems can reliably retrieve, analyze, and act on evidence. Outputs will include a public post-workshop report, a taxonomy of readiness failures, reusable data-system patterns for samples, assays, workflows, model-training data, and wet-lab feedback, and practical recommendations for task-specific scientific AI evaluation. The workshop will also define a roadmap for future shared tasks, benchmark proposals, and community evaluation artifacts.
+
 
 
 % =====================================================================
 % 6. Organizer Information -- two pages maximum (NeurIPS 2026 hard limit).
 % =====================================================================
 \newpage
+\setcounter{section}{0}
 \setproposalpart{PART II -- Organizer Information}
-\proposalbanner{PART II -- Organizer Information}{Pages 4--5, two-page limit}
-\section{Organizer Information}
-\label{sec:organizers}
+\begin{center}
+    \textbf{\large Organizer Information}
+\end{center}
 
 % \subsection{Note on This Section}
 % \label{sec:org-note}
 % Per NeurIPS 2026 guidance, this section is limited to two pages.
 
-\subsection{COI and Concurrent-Proposal Statement}
+\section{COI and Concurrent-Proposal Statement}
 \label{sec:org-coi}
-Each listed organizer will confirm in writing, prior to OpenReview submission, that (a)~they are not listed on more than two NeurIPS 2026 workshop proposals, (b)~they understand that organizers cannot give invited talks at this workshop and will limit their on-stage role to brief introductions or panel moderation, and (c)~they will not submit papers to this workshop, nor will their students, postdocs, or close collaborators. Organizers will not review or shape acceptance decisions about submissions from within their own organization (corporation-wide for large corporations).
+Each listed organizer has confirmed in writing, prior to OpenReview submission, that (a)~they are not listed on more than two NeurIPS 2026 workshop proposals, (b)~they understand that organizers cannot give invited talks at this workshop and will limit their on-stage role to brief introductions or panel moderation, and (c)~they will not submit papers to this workshop, nor will their students, postdocs, or close collaborators. Organizers will not review or shape acceptance decisions about submissions from within their own organization (corporation-wide for large corporations).
 
-\subsection{Organizing Team}
+\section{Organizing Team}
 \label{sec:org-team}
 
-%\small
-
-\noindent\textbf{Michal Rosen-Zvi.}
+\begin{itemize}
+    \item \textbf{Michal Rosen-Zvi.}
 \textit{The Hebrew University of Jerusalem; IBM Research; 
 \href{mailto:michal.rosen-zvi@mail.huji.ac.il}{michal.rosen-zvi@mail.huji.ac.il}.}
-Director of AI for Healthcare and Life Sciences at IBM Research and Adjunct Professor of Computational Medicine at the Hebrew University. Her research focuses on machine learning for healthcare, scientific discovery, and biomedical AI. She leads multiple large-scale AI initiatives spanning pharmaceutical research, scientific reasoning, and AI-driven discovery systems.
+Director of AI for Healthcare and Life Sciences at IBM Research and Adjunct Professor of Computational Medicine at the Hebrew University, working on machine learning for healthcare, biomedical AI, scientific reasoning, and AI-driven discovery systems.
 
-\medskip
-
-\noindent\textbf{Zoe Piran.}
+\item \textbf{Zoe Piran.}
 \textit{Stanford University; Roche / Genentech;
 \href{mailto:piran.zoe@gene.com}{piran.zoe@gene.com}.}
-Postdoctoral Fellow at Genentech and Stanford University working at the intersection of machine learning and computational biology. Her research develops computational methods for understanding cellular dynamics from multimodal biological data and connects modern ML techniques with scientific discovery workflows.
+Postdoctoral Fellow at Genentech and Stanford University working at the intersection of machine learning and computational biology, with research on cellular dynamics from multimodal biological data and scientific discovery workflows.
 
-\medskip
-
-% \noindent\textbf{Shirley Ho.}
-% \textit{New York University; Simons Foundation; 
-% \href{mailto:shirley@polymathic.org}{shirley@polymathic.org}.}
-% Astrophysicist and machine learning researcher whose work spans cosmology, foundation models for science, and interpretable machine learning. She has pioneered the application of modern deep learning methods in astrophysics and is a leading advocate for AI-driven scientific discovery.
-
-\medskip
-
-\noindent\textbf{Kenny Workman.}
+\item \textbf{Kenny Workman.}
 \textit{LatchBio;
 \href{mailto:kenny@latch.bio}{kenny@latch.bio}.}
 Co-founder and CTO of LatchBio developing infrastructure and benchmarks for data analysis agents. His interests span engineering in biology, computing and AI.
 
-\medskip
-
-\noindent\textbf{Edaeni Hamid.}
+\item \textbf{Edaeni Hamid.}
 \textit{Roche / Genentech;
 \href{mailto:hamid.edaeni@gene.com}{hamid.edaeni@gene.com}.}
-Machine learning and data-platform practitioner focused on deploying AI systems across complex scientific and enterprise data ecosystems. Her interests include AI data readiness, scientific data infrastructure, evaluation, and operationalizing AI systems in research environments.
+Machine learning and data-platform practitioner focused on deploying AI systems across complex scientific and enterprise data ecosystems, including AI data readiness, scientific data infrastructure, evaluation, and operational AI in research environments.
 
-\medskip
-
-\noindent\textbf{Vladimir Ermakov.}
+\item \textbf{Vladimir Ermakov.}
 \textit{Edison Scientific;
 \href{mailto:vermakov@edisonscientific.com}{vermakov@edisonscientific.com}.}
-Researcher and entrepreneur building AI systems for scientific discovery, biomedical research, and foundation-model applications. His work focuses on scientific reasoning, evaluation, evidence synthesis, and AI systems that support hypothesis generation and decision-making in complex research environments.
+Researcher and entrepreneur building AI systems for scientific discovery, biomedical research, and foundation-model applications, with work on scientific reasoning, evaluation, evidence synthesis, and hypothesis generation.
 
-\medskip
-
-\noindent\textbf{Arindam Sett.}
+\item \textbf{Arindam Sett.}
 \textit{Roche / Genentech;
 \href{mailto:sett.arindam@gene.com}{sett.arindam@gene.com}.}
-Principal Machine Learning Engineer at Genentech focused on AI data readiness, scientific AI platforms, retrieval-augmented systems, and agentic workflows. His work spans data foundations, knowledge systems, and AI infrastructure for scientific discovery, with a particular interest in understanding how data ecosystems influence downstream AI behavior.
+Principal Machine Learning Engineer at Genentech working on AI data readiness, scientific AI platforms, retrieval-augmented systems, and agentic workflows, and leading proposal coordination and outreach around the AIDaR workshop theme.
 
-\normalsize
+\item \textbf{Sina Booeshaghi.}
+\textit{University of California, Berkeley;
+\href{mailto:sinab@berkeley.edu}{sinab@berkeley.edu}.}
+Postdoctoral Scholar in Bioengineering developing single-cell genomics technologies, with work on robust assay measurements, sequencing-data processing, and reproducible analysis workflows for multimodal genomic data.
 
-\subsection{Why This Team Can Deliver the Workshop}
+
+\end{itemize}
+
+
+% \paragraph{Shirley Ho.}
+% \textit{New York University; Simons Foundation; 
+% \href{mailto:shirley@polymathic.org}{shirley@polymathic.org}.}
+% Astrophysicist and machine learning researcher whose work spans cosmology, foundation models for science, and interpretable machine learning. She has pioneered the application of modern deep learning methods in astrophysics and is a leading advocate for AI-driven scientific discovery.
+
+
+
+\section{Why This Team Can Deliver the Workshop}
 \label{sec:org-fit}
-The team spans industry research labs and academia, with combined expertise across applied ML for biomedical and scientific data, foundation models for science, scientific data infrastructure, and trustworthy/data-centric AI. The team intentionally blends senior organizers with first-time workshop organizers (two members) to support junior involvement while maintaining organizational experience. Outreach is already underway, with anchor speakers confirmed across AI for Science, foundation models, scientific infrastructure, and biomedical AI. The organizing team has assembled an initial reviewer pool of 44 researchers spanning academia, biotech, scientific infrastructure, and industry research, providing immediate capacity for workshop review and community outreach. The workshop website, CFP, OpenReview venue, reviewer recruitment plan, and post-workshop artifact plan all have designated owners; OpenReview venue setup, CFP drafting, and reviewer recruitment have explicit owners on the team. The team is intentionally diverse across gender, institution type (industry research, academic, biotech), geography (US, Israel), and career stage.
+The team spans industry research labs and academia, with combined expertise across applied ML for biomedical and scientific data, foundation models for science, scientific data infrastructure, and trustworthy/data-centric AI. The team intentionally blends senior organizers with newer workshop organizers to support junior involvement while maintaining organizational experience. Outreach is already underway, with anchor speakers confirmed across AI for Science, foundation models, scientific infrastructure, and biomedical AI. 
 
-\subsection{Diversity of the Organizing Team}
+The organizing team has assembled an initial reviewer pool of 45 researchers spanning academia, biotech, scientific infrastructure, and industry research, providing immediate capacity for workshop review and community outreach. The workshop website, CFP, OpenReview venue, reviewer recruitment plan, and post-workshop artifact plan all have designated owners; OpenReview venue setup, CFP drafting, and reviewer recruitment have explicit owners on the team. The team is intentionally diverse across gender, institution type (industry research, academic, biotech), geography (US, Israel), and career stage.
+
+\section{Diversity of the Organizing Team}
 \label{sec:org-diversity}
-The organizing team is diverse across gender, institution type, geography, seniority, and discipline. The team spans pharmaceutical research, academic research, scientific infrastructure, biotech platforms, and independent scientific-AI organizations, with members across the US, and Israel. The organizers intentionally bridge scientific ML, biomedical AI, data systems, provenance, foundation models for science, and production AI infrastructure. The CFP and PC recruitment will explicitly extend beyond the organizers' immediate professional networks through university mailing lists, professional societies, social media, and cross-institutional outreach to broaden representation across geography, career stage, institution type, and research perspective.
+The organizing team is diverse across gender, institution type, geography, seniority, and discipline. The team spans pharmaceutical research, academic research, scientific infrastructure, biotech platforms, and independent scientific-AI organizations, with members across the US and Israel. The organizers intentionally bridge scientific ML, biomedical AI, data systems, provenance, foundation models for science, and production AI infrastructure. 
 
-\subsection{Program Committee Plan and Roster}
+The CFP and PC recruitment will explicitly extend beyond the organizers' immediate professional networks through university mailing lists, professional societies, social media, and cross-institutional outreach to broaden representation across geography, career stage, institution type, and research perspective.
+
+\section{Program Committee Plan}
 \label{sec:pc}
 
 We are assembling a Program Committee of 40--50 reviewers before the CFP launch. Assuming 40--50 submissions and three reviews per submission, this target keeps the expected reviewer load at or below three papers per reviewer. If submissions exceed 50, we will expand the PC or appoint area chairs to maintain review quality and timely decisions.
 
-The PC is organized around expertise clusters aligned with the workshop's two tracks: AI-facing scientific data infrastructure; evaluations for scientific AI; workflow systems and deployed analysis tools; biomedical and scientific AI applications; industrial assay platforms; reproducibility, failure analysis, and human review. Each submission will be assigned to reviewers with matching technical expertise, and COI checks will be performed through OpenReview before assignments are finalized. The named roster below reflects the current confirmed reviewer pool.
+The PC is organized around expertise clusters aligned with the workshop's themes: AI-facing scientific data infrastructure; evaluations for scientific AI; workflow systems and deployed analysis tools; biomedical and scientific AI applications; industrial assay platforms; reproducibility, failure analysis, and human review. Each submission will be assigned to reviewers with matching technical expertise, and COI checks will be performed through OpenReview before assignments are finalized. The named roster below reflects the current confirmed reviewer pool.
 
-\noindent\textbf{Current confirmed reviewer pool.}\par\vspace{2pt}
 
-\noindent{\scriptsize
+\section{Current confirmed reviewer pool.}\par\vspace{2pt}
+
+% \noindent{\scriptsize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabular}{@{}p{0.49\textwidth}p{0.49\textwidth}@{}}
@@ -441,13 +456,14 @@ R21: P. Pao-Huang --- Stanford & R43: S. Alber --- Stanford \\
 
 R22: T. Kitak --- ETH Zürich & R44: E. De Brouwer --- Genentech \\
 
+& R45: B. Rasoulzadeh --- Apple
 \end{tabular}
-}
+%}
 
 \vspace{2mm}
 \textit{\noindent Additional reviewers will be recruited if needed.}
 
-\subsection{Other Workshops the Organizers are Concurrently Proposing}
+\section{Other Workshops the Organizers are Concurrently Proposing}
 \label{sec:org-concurrent}
 No listed organizer is concurrently proposing another NeurIPS 2026 workshop. 
 
@@ -456,7 +472,7 @@ No listed organizer is concurrently proposing another NeurIPS 2026 workshop.
 % =====================================================================
 \clearpage
 \setproposalpart{References}
-\proposalbanner{References}{Outside the 3+2 page limit}
+\proposalbanner{References}{}
 \renewcommand{\refname}{References}
 \begin{thebibliography}{99}
 
